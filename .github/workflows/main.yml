@@ -4,8 +4,16 @@ on:
     - main
     - release/*
 jobs:
-  my_job:
+  check:
     name: deploy to staging
     runs-on: ubuntu-18.04
     steps:
     - run: docker info
+    - run: docker pull erichough/nfs-server:2.2.1
+    - run: docker save -o image.tar erichough/nfs-server:2.2.1
+    - name: "upload artifact"
+      uses: actions/upload-artifact@v3
+      with:
+        name: image.tar
+        path: image.tar
+        retention-days: 5

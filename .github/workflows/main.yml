@@ -8,7 +8,4 @@ jobs:
     name: deploy to staging
     runs-on: ubuntu-18.04
     steps:
-    - name: test
-      uses: rethab/bash-action@v1
-      with:
-        command: "echo 123"
+    - run: docker info

@@ -1,0 +1,4 @@
+- name: test
+uses: rethab/bash-action@v1
+with:
+  command: "echo 123"

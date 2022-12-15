@@ -1,4 +1,14 @@
-- name: test
-uses: rethab/bash-action@v1
-with:
-  command: "echo 123"
+on:
+  push:
+    branches:
+    - main
+    - release/*
+jobs:
+  my_job:
+    name: deploy to staging
+    runs-on: ubuntu-18.04
+    steps:
+    - name: test
+      uses: rethab/bash-action@v1
+      with:
+        command: "echo 123"
